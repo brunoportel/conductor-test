@@ -1,0 +1,77 @@
+#Spring Boot properties
+spring:
+  http:
+    encoding:
+      charset: "@project.build.sourceEncoding@"
+  application:
+    name: "@project.name@"
+    version: "@project.version@"
+    description: "@project.description@"
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    initialization-mode: never
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+#actuator info
+info:
+  app:
+    groupId: "@project.groupId@"
+    artifactId: "@project.artifactId@"
+    version: "@project.version@"
+    java.version: "@java.version@"
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+#Server
+server:
+  port: 8080
+  servlet:
+    context-path: /conductor-api
+
+#core properties
+core:
+  security:
+    jwt:
+      expiration: 3600000
+      expiration-limit: 60
+      secret: GW3J0cDhf52HHR41kX0d1IPss3uMY8ZlMIZuGQ==YzyMMg6NIhCh/ha3YBqfwupD
+      issuer: bbarreto
+
+database:
+  tenants:
+    -
+      id: tenantId1
+      driver: com.mysql.cj.jdbc.Driver
+      url: ${MYSQL_JDBC_1}
+      username: ${MYSQL_USER}
+      password: ${MYSQL_PASS}
+      test-query: 'select curdate()'
+      timeout: 60000
+      min-idle: 5
+      max-size: 10
+    -
+      id: tenantId2
+      driver: com.mysql.cj.jdbc.Driver
+      url: ${MYSQL_JDBC_2}
+      username: ${MYSQL_USER}
+      password: ${MYSQL_PASS}
+      test-query: 'select curdate()'
+      timeout: 60000
+      min-idle: 5
+      max-size: 10
