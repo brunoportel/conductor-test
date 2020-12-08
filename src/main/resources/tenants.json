@@ -1,0 +1,28 @@
+{
+	"tenants" : 
+	[
+		{
+			"id": "tenantId1",
+			"driver" : "com.mysql.cj.jdbc.Driver",
+			"url" : "jdbc:mysql://localhost:3306/database1?useTimezone=true&serverTimezone=UTC",
+			"username" : "root",
+			"password" : "9gtKfqdJeKuvqakK",
+			"testQuery" : "select curdate()",
+			"timeout" : 60000,
+			"minIdle": 5,
+			"maxSize": 10
+		}
+		,
+		{
+			"id": "tenantId2",
+			"driver" : "com.mysql.cj.jdbc.Driver",
+			"url" : "jdbc:mysql://localhost:3306/database2?useTimezone=true&serverTimezone=UTC",
+			"username" : "root",
+			"password" : "9gtKfqdJeKuvqakK",
+			"testQuery" : "select curdate()",
+			"timeout" : 60000,
+			"minIdle": 5,
+			"maxSize": 10
+		}
+	]
+}

@@ -52,26 +52,5 @@ core:
       expiration-limit: 60
       secret: GW3J0cDhf52HHR41kX0d1IPss3uMY8ZlMIZuGQ==YzyMMg6NIhCh/ha3YBqfwupD
       issuer: bbarreto
-
-database:
   tenants:
-    -
-      id: tenantId1
-      driver: com.mysql.cj.jdbc.Driver
-      url: ${MYSQL_JDBC_1}
-      username: ${MYSQL_USER}
-      password: ${MYSQL_PASS}
-      test-query: 'select curdate()'
-      timeout: 60000
-      min-idle: 5
-      max-size: 10
-    -
-      id: tenantId2
-      driver: com.mysql.cj.jdbc.Driver
-      url: ${MYSQL_JDBC_2}
-      username: ${MYSQL_USER}
-      password: ${MYSQL_PASS}
-      test-query: 'select curdate()'
-      timeout: 60000
-      min-idle: 5
-      max-size: 10
+    file-name: src/main/resources/tenants.json
