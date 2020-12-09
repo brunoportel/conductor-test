@@ -10,10 +10,14 @@ import javax.validation.constraints.Size;
 
 import br.com.bbarreto.api.model.CustomerModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Schema(name = "CustomerResponse")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerResponseDTO implements Serializable {
 
 	private static final long serialVersionUID = -8462952035451136971L;

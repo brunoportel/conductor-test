@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Schema(name = "Id")
+@Schema(name = "IdRequest")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

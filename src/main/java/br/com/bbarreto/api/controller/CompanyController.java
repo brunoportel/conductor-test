@@ -84,12 +84,7 @@ public class CompanyController {
 		if (this.companyService.exists(id)) {
 			this.companyService.update(id, companyRequestDTO);
 			var companyResponseDTO = this.companyService.findById(id);
-
-			if (Objects.nonNull(companyResponseDTO)) {
-				responseEntity = ResponseEntity.ok(companyResponseDTO);
-			} else {
-				responseEntity = ResponseEntity.notFound().build();
-			}
+			responseEntity = ResponseEntity.ok(companyResponseDTO);
 		} else {
 			responseEntity = ResponseEntity.notFound().build();
 		}
