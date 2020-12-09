@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.dto.ApiUserDetailsDTO;
 import br.com.bbarreto.core.service.JwtService;
 import br.com.bbarreto.core.util.CoreConstantsUtils;
 
@@ -35,10 +35,10 @@ public class AuthenticateFilter extends OncePerRequestFilter {
 
 			if (this.jwtService.isValid(jwtToken)) {
 				var username = this.jwtService.getUserName(jwtToken);
-				var apiUserDetails = (ApiUserDetails) this.userDetailsService.loadUserByUsername(username);
+				var apiUserDetailsDTO = (ApiUserDetailsDTO) this.userDetailsService.loadUserByUsername(username);
 
-				var usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(apiUserDetails, null,
-						apiUserDetails.getAuthorities());
+				var usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(apiUserDetailsDTO, null,
+						apiUserDetailsDTO.getAuthorities());
 
 				usernamePasswordAuthenticationToken
 				.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

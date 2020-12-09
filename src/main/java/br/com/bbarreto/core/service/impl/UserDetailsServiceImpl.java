@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.dto.ApiUserDetailsDTO;
 import br.com.bbarreto.core.util.CoreConstantsUtils;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
-	public ApiUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public ApiUserDetailsDTO loadUserByUsername(String username) throws UsernameNotFoundException {
 		//Just an example to simulate a db call
 		return this.loadUserFromDatabase().stream()
 				.filter(user -> user.getUsername().equals(username))
@@ -26,11 +26,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 						MessageFormat.format(CoreConstantsUtils.USER_NOT_FOUND_TEMPLATE, username)));
 	}
 
-	private List<ApiUserDetails> loadUserFromDatabase() {
-		var apiUserDetailsList = new ArrayList<ApiUserDetails>(2);
+	private List<ApiUserDetailsDTO> loadUserFromDatabase() {
+		var apiUserDetailsList = new ArrayList<ApiUserDetailsDTO>(2);
 
 		apiUserDetailsList.add(
-				ApiUserDetails.builder()
+				ApiUserDetailsDTO.builder()
 				.username("user1")
 				.password("$2a$10$9zknNKfuwydXd5PFp7pdx./9deDWzzSQNqCOapHAMcYKC.hM21g/S")
 				.authorities(Arrays.asList(new SimpleGrantedAuthority("USER")))
@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				.build());
 
 		apiUserDetailsList.add(
-				ApiUserDetails.builder()
+				ApiUserDetailsDTO.builder()
 				.username("user2")
 				.password("$2a$10$YqE2DgVo7455gW6X0jvFWeFWRSp0fcz7yCccIHPH1N9n8E73CHmyy")
 				.authorities(Arrays.asList(new SimpleGrantedAuthority("USER")))

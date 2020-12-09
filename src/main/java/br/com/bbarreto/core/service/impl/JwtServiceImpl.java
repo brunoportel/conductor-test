@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.dto.ApiUserDetailsDTO;
 import br.com.bbarreto.core.service.JwtService;
 import br.com.bbarreto.core.util.CoreConstantsUtils;
 import io.jsonwebtoken.Jwts;
@@ -35,13 +35,13 @@ public class JwtServiceImpl implements JwtService {
 	@Override
 	public String createFromAuthentication(Authentication authentication) {
 
-		var apiUserDetails = (ApiUserDetails) authentication.getPrincipal();
+		var apiUserDetailsDTO = (ApiUserDetailsDTO) authentication.getPrincipal();
 
 		return Jwts.builder()
 				.signWith(SignatureAlgorithm.HS512, this.secretKey)
 				.setExpiration(this.createExpirationTime())
 				.setIssuer(this.issuer)
-				.setSubject((apiUserDetails.getUsername()))
+				.setSubject((apiUserDetailsDTO.getUsername()))
 				.setIssuedAt(new Date())
 				.compact();
 	}
