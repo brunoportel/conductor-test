@@ -7,8 +7,10 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import br.com.bbarreto.api.model.CustomerModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+@Schema(name = "CustomerRequest")
 @Data
 public class CustomerRequestDTO implements Serializable {
 	
@@ -28,10 +30,10 @@ public class CustomerRequestDTO implements Serializable {
 	private String email;
 
 	public CustomerModel toModel() {
-		return CustomerModel.builder()
-		.firstName(this.getFirstName())
-		.lastName(this.getLastName())
-		.email(this.getEmail())
-		.build();
+		var customerModel = new CustomerModel();
+		customerModel.setFirstName(this.getFirstName());
+		customerModel.setLastName(this.getLastName());
+		customerModel.setEmail(this.getEmail());
+		return customerModel;
 	}
 }

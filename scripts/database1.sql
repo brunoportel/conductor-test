@@ -18,3 +18,19 @@ CREATE TABLE `database1`.`tb_company` (
   `last_update` timestamp NULL,
   PRIMARY KEY (`company_id`)
 );
+
+CREATE TABLE `database1`.`tb_company_customer` (
+  `company_id` BIGINT NOT NULL,
+  `customer_id` BIGINT NOT NULL,
+  PRIMARY KEY (`company_id`, `customer_id`),
+  INDEX `fk_tb_comp_cust_customer_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_tb_comp_cust_company`
+    FOREIGN KEY (`company_id`)
+    REFERENCES `database1`.`tb_company` (`company_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_comp_cust_customer`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `database1`.`tb_customer` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

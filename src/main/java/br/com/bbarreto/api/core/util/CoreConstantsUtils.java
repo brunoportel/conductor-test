@@ -16,4 +16,5 @@ public class CoreConstantsUtils {
 	public static final String ROUTING_UPDATING_DATASOURCE_TEMPLATE = "A datasource with tenantId ({}) is being updated";
 	public static final String ROUTING_CREATING_DATASOURCE_TEMPLATE = "A datasource with tenantId ({}) is being created";
 	public static final String ROUTING_REMOVE_DATASOURCE_TEMPLATE = "A datasource with tenantId ({}) is being removed";
+	public static final String SWAGGER_AUTH_TOKEN_NAME = "bearerToken";
 }

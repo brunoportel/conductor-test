@@ -12,10 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bbarreto.api.dto.CustomerRequestDTO;
 import br.com.bbarreto.api.dto.CustomerResponseDTO;
-import br.com.bbarreto.api.exception.ObjectNotFoundException;
 import br.com.bbarreto.api.repository.CustomerRepository;
 import br.com.bbarreto.api.service.CustomerService;
-import br.com.bbarreto.api.util.ConstantsUtils;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -59,8 +57,8 @@ public class CustomerServiceImpl implements CustomerService {
 		customerModel.setActive(true);
 		customerModel.setCreateDate(OffsetDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		customerModel.setLastUpdate(OffsetDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-
 		customerModel = this.customerRepository.save(customerModel);
+
 		return new CustomerResponseDTO(customerModel);
 	}
 
@@ -68,15 +66,18 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerResponseDTO update(Long id, CustomerRequestDTO customerRequestDTO) {
 		var customerModel = this.customerRepository.findById(id)
-				.orElseThrow(() -> new ObjectNotFoundException(ConstantsUtils.CUSTOMER_ENTITY, id));
+				.orElse(null);
 
-		customerModel.setFirstName(customerRequestDTO.getFirstName());
-		customerModel.setLastName(customerRequestDTO.getLastName());
-		customerModel.setEmail(customerRequestDTO.getEmail());
-		customerModel.setLastUpdate(OffsetDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-
-		customerModel = this.customerRepository.save(customerModel);
-		return new CustomerResponseDTO(customerModel);
+		if (Objects.nonNull(customerModel)) {
+			customerModel.setFirstName(customerRequestDTO.getFirstName());
+			customerModel.setLastName(customerRequestDTO.getLastName());
+			customerModel.setEmail(customerRequestDTO.getEmail());
+			customerModel.setLastUpdate(OffsetDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+			customerModel = this.customerRepository.save(customerModel);
+			return new CustomerResponseDTO(customerModel);
+		} else {
+			return null;
+		}
 	}
 
 	@Transactional
@@ -84,5 +85,4 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteById(Long id) {
 		this.customerRepository.deleteById(id);
 	}
-
 }

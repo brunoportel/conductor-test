@@ -12,9 +12,9 @@ public interface CompanyService {
 
 	List<CompanyResponseDTO> findAll();
 
-	CompanyResponseDTO create(CompanyRequestDTO companyRequestDTO);
+	Long create(CompanyRequestDTO companyRequestDTO);
 
-	CompanyResponseDTO update(Long id, CompanyRequestDTO companyRequestDTO);
+	void update(Long id, CompanyRequestDTO companyRequestDTO);
 
 	void deleteById(Long id);
 }
