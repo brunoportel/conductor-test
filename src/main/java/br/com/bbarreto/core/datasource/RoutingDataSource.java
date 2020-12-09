@@ -18,9 +18,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariDataSource;
 
+import br.com.bbarreto.core.dto.ApiUserDetailsDTO;
 import br.com.bbarreto.core.dto.TenantDTO;
 import br.com.bbarreto.core.dto.TenantListDTO;
-import br.com.bbarreto.core.entrypoint.ApiUserDetails;
 import br.com.bbarreto.core.util.CoreConstantsUtils;
 import lombok.extern.log4j.Log4j2;
 
@@ -53,7 +53,7 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
 		var authentication = SecurityContextHolder.getContext().getAuthentication();
 
 		if (Objects.nonNull(authentication)) {
-			var apiUserDetails = (ApiUserDetails) authentication.getPrincipal();
+			var apiUserDetails = (ApiUserDetailsDTO) authentication.getPrincipal();
 
 			if (Objects.nonNull(apiUserDetails) && StringUtils.isNotBlank(apiUserDetails.getTenantId())) {
 				currentLookupKey = apiUserDetails.getTenantId();

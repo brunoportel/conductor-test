@@ -1,4 +1,4 @@
-package br.com.bbarreto.core.entrypoint;
+package br.com.bbarreto.core.dto;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class ApiUserDetails implements UserDetails {
+public class ApiUserDetailsDTO implements UserDetails {
 
 	private static final long serialVersionUID = -7690045280594460355L;
 	private String username;
