@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.service;
+package br.com.bbarreto.core.service;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.config;
+package br.com.bbarreto.core.config;
 
 import java.nio.charset.StandardCharsets;
 

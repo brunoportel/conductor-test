@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.dto;
+package br.com.bbarreto.core.dto;
 
 import java.util.List;
 

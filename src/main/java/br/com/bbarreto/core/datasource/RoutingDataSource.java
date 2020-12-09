@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.datasource;
+package br.com.bbarreto.core.datasource;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,10 +18,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariDataSource;
 
-import br.com.bbarreto.api.core.dto.TenantDTO;
-import br.com.bbarreto.api.core.dto.TenantListDTO;
-import br.com.bbarreto.api.core.entrypoint.ApiUserDetails;
-import br.com.bbarreto.api.core.util.CoreConstantsUtils;
+import br.com.bbarreto.core.dto.TenantDTO;
+import br.com.bbarreto.core.dto.TenantListDTO;
+import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.util.CoreConstantsUtils;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

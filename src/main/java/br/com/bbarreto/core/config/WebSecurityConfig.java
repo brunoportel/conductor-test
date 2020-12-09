@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.config;
+package br.com.bbarreto.core.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,9 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import br.com.bbarreto.api.core.entrypoint.ApiAuthenticationEntryPoint;
-import br.com.bbarreto.api.core.filter.AuthenticateFilter;
-import br.com.bbarreto.api.core.service.impl.UserDetailsServiceImpl;
+import br.com.bbarreto.core.entrypoint.ApiAuthenticationEntryPoint;
+import br.com.bbarreto.core.filter.AuthenticateFilter;
+import br.com.bbarreto.core.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -46,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
-				.authorizeRequests()
-				.antMatchers("/v1/auth/**", "/actuator/**", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
+		.authorizeRequests()
+		.antMatchers("/v1/auth/**", "/actuator/**", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
 		.permitAll()
 		.anyRequest()
 		.authenticated();

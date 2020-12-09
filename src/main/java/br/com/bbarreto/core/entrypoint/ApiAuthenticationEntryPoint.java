@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.entrypoint;
+package br.com.bbarreto.core.entrypoint;
 
 import java.io.IOException;
 

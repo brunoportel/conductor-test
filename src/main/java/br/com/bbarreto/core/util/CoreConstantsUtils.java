@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.util;
+package br.com.bbarreto.core.util;
 
 public class CoreConstantsUtils {
 

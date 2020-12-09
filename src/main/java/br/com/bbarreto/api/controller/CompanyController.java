@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.bbarreto.api.core.util.CoreConstantsUtils;
 import br.com.bbarreto.api.dto.CompanyRequestDTO;
 import br.com.bbarreto.api.dto.CompanyResponseDTO;
 import br.com.bbarreto.api.dto.ListResponse;
 import br.com.bbarreto.api.service.CompanyService;
 import br.com.bbarreto.api.util.EndpointUtils;
+import br.com.bbarreto.core.util.CoreConstantsUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

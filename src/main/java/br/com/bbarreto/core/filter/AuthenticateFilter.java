@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.filter;
+package br.com.bbarreto.core.filter;
 
 import java.io.IOException;
 
@@ -14,9 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.bbarreto.api.core.entrypoint.ApiUserDetails;
-import br.com.bbarreto.api.core.service.JwtService;
-import br.com.bbarreto.api.core.util.CoreConstantsUtils;
+import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.service.JwtService;
+import br.com.bbarreto.core.util.CoreConstantsUtils;
 
 public class AuthenticateFilter extends OncePerRequestFilter {
 

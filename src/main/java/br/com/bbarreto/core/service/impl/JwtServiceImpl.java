@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.service.impl;
+package br.com.bbarreto.core.service.impl;
 
 import java.util.Date;
 
@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import br.com.bbarreto.api.core.entrypoint.ApiUserDetails;
-import br.com.bbarreto.api.core.service.JwtService;
-import br.com.bbarreto.api.core.util.CoreConstantsUtils;
+import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.service.JwtService;
+import br.com.bbarreto.core.util.CoreConstantsUtils;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.log4j.Log4j2;

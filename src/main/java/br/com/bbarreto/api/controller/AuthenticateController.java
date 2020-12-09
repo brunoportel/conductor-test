@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bbarreto.api.core.service.JwtService;
 import br.com.bbarreto.api.dto.LoginRequestDTO;
 import br.com.bbarreto.api.dto.LoginResponseDTO;
 import br.com.bbarreto.api.util.EndpointUtils;
+import br.com.bbarreto.core.service.JwtService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 

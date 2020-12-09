@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.config;
+package br.com.bbarreto.core.config;
 
 import javax.sql.DataSource;
 
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import br.com.bbarreto.api.core.datasource.RoutingDataSource;
+import br.com.bbarreto.core.datasource.RoutingDataSource;
 
 @Configuration
 @EnableTransactionManagement

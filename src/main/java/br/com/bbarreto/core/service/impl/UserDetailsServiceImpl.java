@@ -1,4 +1,4 @@
-package br.com.bbarreto.api.core.service.impl;
+package br.com.bbarreto.core.service.impl;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.bbarreto.api.core.entrypoint.ApiUserDetails;
-import br.com.bbarreto.api.core.util.CoreConstantsUtils;
+import br.com.bbarreto.core.entrypoint.ApiUserDetails;
+import br.com.bbarreto.core.util.CoreConstantsUtils;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
